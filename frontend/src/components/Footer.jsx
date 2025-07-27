@@ -3,25 +3,27 @@ import { Github, Linkedin, Mail, Code } from "lucide-react";
 import { useAppContext } from "../contexts/AppContext";
 
 const Footer = () => {
+  const { settings } = useAppContext();
+
   const socialLinks = [
     {
       name: "LinkedIn",
-      href: mockData.contact.linkedin,
+      href: settings?.linkedin || "#",
       icon: Linkedin
     },
     {
       name: "GitHub", 
-      href: mockData.contact.github,
+      href: settings?.github || "#",
       icon: Github
     },
     {
       name: "LeetCode",
-      href: mockData.contact.leetcode,
+      href: settings?.leetcode || "#",
       icon: Code
     },
     {
       name: "Email",
-      href: `mailto:${mockData.contact.email}`,
+      href: `mailto:${settings?.email || "contact@example.com"}`,
       icon: Mail
     }
   ];
