@@ -113,7 +113,7 @@ const AboutPage = () => {
                 className="text-xl text-[#666666] leading-relaxed"
                 style={{ fontFamily: "'Inter', sans-serif" }}
               >
-                {about.summary}
+                {about?.summary || "I'm a data professional who brings clarity from complexity – using analysis, technology, and a designer's sense of presentation."}
               </p>
             </div>
             <div className="relative">
