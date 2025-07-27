@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ArrowRight, ExternalLink, Github } from "lucide-react";
-import { mockData } from "../mock";
+import { projectsAPI } from "../services/api";
+import LoadingSpinner from "../components/LoadingSpinner";
+import ErrorMessage from "../components/ErrorMessage";
 
 const ProjectsPage = () => {
   const [selectedProject, setSelectedProject] = useState(null);
