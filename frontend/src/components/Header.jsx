@@ -6,6 +6,7 @@ import { useAppContext } from "../contexts/AppContext";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
+  const { profile } = useAppContext();
 
   const navigation = [
     { name: "Home", href: "/" },
