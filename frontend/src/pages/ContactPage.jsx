@@ -218,11 +218,12 @@ const ContactPage = () => {
                   </div>
                   
                   <button
+                    type="submit"
                     disabled={isSubmitting}
-                    className="w-full md:w-auto inline-flex items-center justify-center px-8 py-4 bg-transparent border border-[#333333] text-[#333333] hover:bg-[#333333] hover:text-[#fffef2] transition-all duration-200 text-sm font-medium"
+                    className="w-full md:w-auto inline-flex items-center justify-center px-8 py-4 bg-transparent border border-[#333333] text-[#333333] hover:bg-[#333333] hover:text-[#fffef2] transition-all duration-200 text-sm font-medium disabled:opacity-50 disabled:cursor-not-allowed"
                     style={{ fontFamily: "'Inter', sans-serif" }}
                   >
-                    Send Message
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
                     <Send size={16} className="ml-2" />
                   </button>
                 </form>
