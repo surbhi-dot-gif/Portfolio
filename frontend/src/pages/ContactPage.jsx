@@ -252,7 +252,7 @@ const ContactPage = () => {
                         className="text-[#666666]"
                         style={{ fontFamily: "'Inter', sans-serif" }}
                       >
-                        Available for remote work worldwide
+                        {settings?.location || "Available for remote work worldwide"}
                       </p>
                     </div>
                   </div>
