@@ -26,7 +26,7 @@ const Header = () => {
             className="text-xl font-normal text-[#333333] hover:text-[#000000] transition-colors duration-200"
             style={{ fontFamily: "'Inter', sans-serif" }}
           >
-            Surabhi Priya
+            {profile?.name || "Surabhi Priya"}
           </Link>
 
           {/* Desktop Navigation */}
