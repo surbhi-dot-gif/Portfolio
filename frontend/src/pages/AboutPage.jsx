@@ -197,7 +197,7 @@ const AboutPage = () => {
                 className="text-lg text-[#666666] leading-relaxed mb-8"
                 style={{ fontFamily: "'Inter', sans-serif" }}
               >
-                {about.learning}
+                {about?.learning || "I've continuously expanded my skills through Coding Ninjas, Udemy courses, and problem-solving on LeetCode."}
               </p>
               <p 
                 className="text-lg text-[#666666] leading-relaxed"
