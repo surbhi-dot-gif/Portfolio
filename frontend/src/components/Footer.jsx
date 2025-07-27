@@ -1,6 +1,6 @@
 import React from "react";
 import { Github, Linkedin, Mail, Code } from "lucide-react";
-import { mockData } from "../mock";
+import { useAppContext } from "../contexts/AppContext";
 
 const Footer = () => {
   const socialLinks = [
