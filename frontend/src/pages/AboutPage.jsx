@@ -274,8 +274,26 @@ const AboutPage = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {mockData.skills.map((skill, index) => (
+            {skillsLoading ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {[...Array(6)].map((_, i) => (
+                  <div key={i} className="bg-[#f6f5e8] p-6 border border-[#ebeade] animate-pulse">
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="h-6 bg-[#ebeade] rounded w-20"></div>
+                      <div className="w-6 h-6 bg-[#ebeade] rounded"></div>
+                    </div>
+                    <div className="w-full bg-[#bcbbb4] h-2 mb-2">
+                      <div className="h-2 bg-[#ebeade] rounded w-3/4"></div>
+                    </div>
+                    <div className="h-4 bg-[#ebeade] rounded w-16"></div>
+                  </div>
+                ))}
+              </div>
+            ) : skillsError ? (
+              <ErrorMessage message={skillsError} showRetry={false} />
+            ) : (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {skills.map((skill, index) => (
               <div
                 key={skill.name}
                 className="bg-[#f6f5e8] p-6 border border-[#ebeade] hover:bg-[#ebeade] transition-all duration-200"
