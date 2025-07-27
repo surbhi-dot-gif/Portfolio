@@ -6,6 +6,28 @@ import ErrorMessage from "../components/ErrorMessage";
 
 const ProjectsPage = () => {
   const [selectedProject, setSelectedProject] = useState(null);
+  const [projects, setProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  // Load projects on component mount
+  useEffect(() => {
+    const loadProjects = async () => {
+      try {
+        setLoading(true);
+        setError(null);
+        const projectsData = await projectsAPI.getAll();
+        setProjects(projectsData);
+      } catch (err) {
+        setError('Failed to load projects');
+        console.error('Error loading projects:', err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadProjects();
+  }, []);
 
   const openProjectModal = (project) => {
     setSelectedProject(project);
