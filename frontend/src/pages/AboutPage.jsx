@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Code, TrendingUp, Users, Award } from "lucide-react";
-import { mockData } from "../mock";
+import { useAppContext } from "../contexts/AppContext";
+import { skillsAPI, aboutAPI } from "../services/api";
+import LoadingSpinner from "../components/LoadingSpinner";
+import ErrorMessage from "../components/ErrorMessage";
 
 const AboutPage = () => {
   const { about, profile } = mockData;
