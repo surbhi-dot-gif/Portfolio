@@ -82,7 +82,7 @@ const HomePage = () => {
                   className="text-lg text-[#4a4a4a] italic"
                   style={{ fontFamily: "'Inter', sans-serif" }}
                 >
-                  "                  "{profile?.tagline || "Driven by data, powered by curiosity"}""
+                  "{profile?.tagline || "Driven by data, powered by curiosity"}"
                 </p>
               </div>
               
