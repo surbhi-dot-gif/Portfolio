@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, BarChart3, Database, TrendingUp } from "lucide-react";
-import { mockData } from "../mock";
+import { ArrowRight } from "lucide-react";
+import { useAppContext } from "../contexts/AppContext";
+import { projectsAPI, skillsAPI } from "../services/api";
+import LoadingSpinner from "../components/LoadingSpinner";
+import ErrorMessage from "../components/ErrorMessage";
 
 const HomePage = () => {
   const { profile, skills } = mockData;
