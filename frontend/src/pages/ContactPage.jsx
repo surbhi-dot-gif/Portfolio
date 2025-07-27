@@ -270,7 +270,7 @@ const ContactPage = () => {
                         className="text-[#666666]"
                         style={{ fontFamily: "'Inter', sans-serif" }}
                       >
-                        Usually within 24 hours
+                        {settings?.responseTime || "Usually within 24 hours"}
                       </p>
                     </div>
                   </div>
