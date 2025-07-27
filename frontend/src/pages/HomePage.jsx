@@ -70,7 +70,7 @@ const HomePage = () => {
                   className="text-4xl lg:text-5xl font-normal text-[#333333] leading-tight"
                   style={{ fontFamily: "'Inter', sans-serif" }}
                 >
-                  Hi, I'm {profile.name}
+                  Hi, I'm {profile?.name || "Surabhi Priya"}
                 </h1>
                 <p 
                   className="text-xl text-[#666666] leading-relaxed"
