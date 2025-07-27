@@ -138,8 +138,23 @@ const HomePage = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
-            {skills.map((skill, index) => (
+          {skillsLoading ? (
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+              {[...Array(6)].map((_, i) => (
+                <div key={i} className="bg-[#fffef2] p-6 border border-[#ebeade] animate-pulse">
+                  <div className="text-center space-y-3">
+                    <div className="w-8 h-8 bg-[#ebeade] rounded mx-auto"></div>
+                    <div className="h-4 bg-[#ebeade] rounded"></div>
+                    <div className="w-full bg-[#ebeade] h-1 rounded"></div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : skillsError ? (
+            <ErrorMessage message={skillsError} showRetry={false} />
+          ) : (
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+              {skills.map((skill, index) => (
               <div
                 key={skill.name}
                 className="bg-[#fffef2] p-6 border border-[#ebeade] hover:shadow-lg transition-all duration-200 hover:transform hover:-translate-y-1 cursor-pointer group"
