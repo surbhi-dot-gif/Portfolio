@@ -218,7 +218,7 @@ const ContactPage = () => {
                   </div>
                   
                   <button
-                    type="submit"
+                    disabled={isSubmitting}
                     className="w-full md:w-auto inline-flex items-center justify-center px-8 py-4 bg-transparent border border-[#333333] text-[#333333] hover:bg-[#333333] hover:text-[#fffef2] transition-all duration-200 text-sm font-medium"
                     style={{ fontFamily: "'Inter', sans-serif" }}
                   >
