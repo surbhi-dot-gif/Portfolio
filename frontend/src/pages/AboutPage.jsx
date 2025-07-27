@@ -6,7 +6,54 @@ import LoadingSpinner from "../components/LoadingSpinner";
 import ErrorMessage from "../components/ErrorMessage";
 
 const AboutPage = () => {
-  const { about, profile } = mockData;
+  const { profile, loading: profileLoading, error: profileError } = useAppContext();
+  const [about, setAbout] = useState(null);
+  const [skills, setSkills] = useState([]);
+  const [aboutLoading, setAboutLoading] = useState(true);
+  const [skillsLoading, setSkillsLoading] = useState(true);
+  const [aboutError, setAboutError] = useState(null);
+  const [skillsError, setSkillsError] = useState(null);
+
+  // Load about and skills data
+  useEffect(() => {
+    const loadData = async () => {
+      try {
+        const aboutData = await aboutAPI.get();
+        setAbout(aboutData);
+        setAboutLoading(false);
+      } catch (err) {
+        setAboutError('Failed to load about information');
+        setAboutLoading(false);
+      }
+
+      try {
+        const skillsData = await skillsAPI.getAll();
+        setSkills(skillsData);
+        setSkillsLoading(false);
+      } catch (err) {
+        setSkillsError('Failed to load skills');
+        setSkillsLoading(false);
+      }
+    };
+
+    loadData();
+  }, []);
+
+  if (profileLoading || aboutLoading) {
+    return (
+      <div className="bg-[#fffef2] min-h-screen flex items-center justify-center">
+        <LoadingSpinner size="large" text="Loading about information..." />
+      </div>
+    );
+  }
+
+  if (profileError || aboutError) {
+    return (
+      <div className="bg-[#fffef2] min-h-screen flex items-center justify-center">
+        <ErrorMessage message={profileError || aboutError} />
+      </div>
+    );
+  }
 
   const highlights = [
     {
