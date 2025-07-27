@@ -7,7 +7,56 @@ import LoadingSpinner from "../components/LoadingSpinner";
 import ErrorMessage from "../components/ErrorMessage";
 
 const HomePage = () => {
-  const { profile, skills } = mockData;
+  const { profile, loading, error } = useAppContext();
+  const [skills, setSkills] = useState([]);
+  const [projects, setProjects] = useState([]);
+  const [skillsLoading, setSkillsLoading] = useState(true);
+  const [projectsLoading, setProjectsLoading] = useState(true);
+  const [skillsError, setSkillsError] = useState(null);
+  const [projectsError, setProjectsError] = useState(null);
+
+  // Load skills and featured projects
+  useEffect(() => {
+    const loadData = async () => {
+      try {
+        // Load skills
+        const skillsData = await skillsAPI.getAll();
+        setSkills(skillsData);
+        setSkillsLoading(false);
+      } catch (err) {
+        setSkillsError('Failed to load skills');
+        setSkillsLoading(false);
+      }
+
+      try {
+        // Load featured projects
+        const projectsData = await projectsAPI.getAll({ featured: true, limit: 2 });
+        setProjects(projectsData);
+        setProjectsLoading(false);
+      } catch (err) {
+        setProjectsError('Failed to load projects');
+        setProjectsLoading(false);
+      }
+    };
+
+    loadData();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="bg-[#fffef2] min-h-screen flex items-center justify-center">
+        <LoadingSpinner size="large" text="Loading portfolio..." />
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="bg-[#fffef2] min-h-screen flex items-center justify-center">
+        <ErrorMessage message={error} />
+      </div>
+    );
+  }
 
   return (
     <div className="bg-[#fffef2]">
