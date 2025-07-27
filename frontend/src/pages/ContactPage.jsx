@@ -5,6 +5,8 @@ import { contactAPI } from "../services/api";
 import { useToast } from "../hooks/use-toast";
 
 const ContactPage = () => {
+  const { settings } = useAppContext();
+  const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -12,6 +14,7 @@ const ContactPage = () => {
     message: ''
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleInputChange = (e) => {
     setFormData({
