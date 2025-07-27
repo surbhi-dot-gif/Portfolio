@@ -199,41 +199,65 @@ const HomePage = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {mockData.projects.slice(0, 2).map((project) => (
-              <div
-                key={project.id}
-                className="bg-[#f6f5e8] p-8 hover:bg-[#ebeade] transition-all duration-300 hover:transform hover:-translate-y-2 cursor-pointer group"
-              >
-                <div className="space-y-6">
-                  <div className="text-4xl mb-4">{project.visual}</div>
-                  <h3 
-                    className="text-xl font-normal text-[#333333] group-hover:text-[#000000] transition-colors"
-                    style={{ fontFamily: "'Inter', sans-serif" }}
-                  >
-                    {project.title}
-                  </h3>
-                  <p 
-                    className="text-[#666666] leading-relaxed"
-                    style={{ fontFamily: "'Inter', sans-serif" }}
-                  >
-                    {project.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tools.map((tool) => (
-                      <span
-                        key={tool}
-                        className="px-3 py-1 bg-[#fffef2] text-[#4a4a4a] text-xs border border-[#bcbbb4] font-medium"
-                        style={{ fontFamily: "'Inter', sans-serif" }}
-                      >
-                        {tool}
-                      </span>
-                    ))}
+          {projectsLoading ? (
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+              {[...Array(2)].map((_, i) => (
+                <div key={i} className="bg-[#f6f5e8] p-8 animate-pulse">
+                  <div className="space-y-6">
+                    <div className="w-12 h-12 bg-[#ebeade] rounded"></div>
+                    <div className="h-6 bg-[#ebeade] rounded w-3/4"></div>
+                    <div className="space-y-2">
+                      <div className="h-4 bg-[#ebeade] rounded"></div>
+                      <div className="h-4 bg-[#ebeade] rounded w-5/6"></div>
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      {[...Array(4)].map((_, j) => (
+                        <div key={j} className="h-6 w-16 bg-[#ebeade] rounded"></div>
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          ) : projectsError ? (
+            <ErrorMessage message={projectsError} showRetry={false} />
+          ) : (
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+              {projects.map((project) => (
+                <div
+                  key={project.id}
+                  className="bg-[#f6f5e8] p-8 hover:bg-[#ebeade] transition-all duration-300 hover:transform hover:-translate-y-2 cursor-pointer group"
+                >
+                  <div className="space-y-6">
+                    <div className="text-4xl mb-4">{project.visual}</div>
+                    <h3 
+                      className="text-xl font-normal text-[#333333] group-hover:text-[#000000] transition-colors"
+                      style={{ fontFamily: "'Inter', sans-serif" }}
+                    >
+                      {project.title}
+                    </h3>
+                    <p 
+                      className="text-[#666666] leading-relaxed"
+                      style={{ fontFamily: "'Inter', sans-serif" }}
+                    >
+                      {project.description}
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {project.tools.map((tool) => (
+                        <span
+                          key={tool}
+                          className="px-3 py-1 bg-[#fffef2] text-[#4a4a4a] text-xs border border-[#bcbbb4] font-medium"
+                          style={{ fontFamily: "'Inter', sans-serif" }}
+                        >
+                          {tool}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
 
           <div className="text-center mt-12">
             <Link
