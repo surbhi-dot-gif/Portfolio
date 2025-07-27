@@ -54,25 +54,25 @@ const ContactPage = () => {
   const socialLinks = [
     {
       name: "LinkedIn",
-      href: mockData.contact.linkedin,
+      href: settings?.linkedin || "#",
       icon: Linkedin,
       description: "Connect with me professionally"
     },
     {
       name: "GitHub", 
-      href: mockData.contact.github,
+      href: settings?.github || "#",
       icon: Github,
       description: "View my code and projects"
     },
     {
       name: "LeetCode",
-      href: mockData.contact.leetcode,
+      href: settings?.leetcode || "#",
       icon: Code,
       description: "Check out my coding practice"
     },
     {
       name: "Email",
-      href: `mailto:${mockData.contact.email}`,
+      href: `mailto:${settings?.email || "contact@example.com"}`,
       icon: Mail,
       description: "Send me a direct email"
     }
