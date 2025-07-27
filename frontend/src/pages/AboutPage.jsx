@@ -203,7 +203,7 @@ const AboutPage = () => {
                 className="text-lg text-[#666666] leading-relaxed"
                 style={{ fontFamily: "'Inter', sans-serif" }}
               >
-                {about.passion}
+                {about?.passion || "I'm passionate about finding insights that others miss and presenting data in ways that tell compelling stories."}
               </p>
             </div>
           </div>
