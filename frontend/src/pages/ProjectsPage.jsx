@@ -29,13 +29,21 @@ const ProjectsPage = () => {
     loadProjects();
   }, []);
 
-  const openProjectModal = (project) => {
-    setSelectedProject(project);
-  };
+  if (loading) {
+    return (
+      <div className="bg-[#fffef2] min-h-screen flex items-center justify-center">
+        <LoadingSpinner size="large" text="Loading projects..." />
+      </div>
+    );
+  }
 
-  const closeProjectModal = () => {
-    setSelectedProject(null);
-  };
+  if (error) {
+    return (
+      <div className="bg-[#fffef2] min-h-screen flex items-center justify-center">
+        <ErrorMessage message={error} />
+      </div>
+    );
+  }
 
   return (
     <div className="bg-[#fffef2] min-h-screen">
