@@ -80,7 +80,7 @@ const ProjectsPage = () => {
       <section className="pb-20">
         <div className="max-w-7xl mx-auto px-8 lg:px-12">
           <div className="space-y-16">
-            {mockData.projects.map((project, index) => (
+            {projects.map((project, index) => (
               <div
                 key={project.id}
                 className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${
