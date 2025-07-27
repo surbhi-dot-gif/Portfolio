@@ -150,6 +150,7 @@ const HomePage = () => {
                 </div>
               ))}
             </div>
+          )}
           ) : skillsError ? (
             <ErrorMessage message={skillsError} showRetry={false} />
           ) : (
