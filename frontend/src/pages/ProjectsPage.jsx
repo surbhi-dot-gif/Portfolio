@@ -45,6 +45,14 @@ const ProjectsPage = () => {
     );
   }
 
+  const openProjectModal = (project) => {
+    setSelectedProject(project);
+  };
+
+  const closeProjectModal = () => {
+    setSelectedProject(null);
+  };
+
   return (
     <div className="bg-[#fffef2] min-h-screen">
       {/* Header Section */}
