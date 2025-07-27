@@ -294,34 +294,35 @@ const AboutPage = () => {
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {skills.map((skill, index) => (
-              <div
-                key={skill.name}
-                className="bg-[#f6f5e8] p-6 border border-[#ebeade] hover:bg-[#ebeade] transition-all duration-200"
-              >
-                <div className="flex items-center justify-between mb-4">
-                  <h3 
-                    className="text-lg font-medium text-[#333333]"
-                    style={{ fontFamily: "'Inter', sans-serif" }}
+                  <div
+                    key={skill.id || index}
+                    className="bg-[#f6f5e8] p-6 border border-[#ebeade] hover:bg-[#ebeade] transition-all duration-200"
                   >
-                    {skill.name}
-                  </h3>
-                  <span className="text-xl">{skill.icon}</span>
-                </div>
-                <div className="w-full bg-[#bcbbb4] h-2 mb-2">
-                  <div 
-                    className="h-2 bg-[#333333] transition-all duration-1000 ease-out"
-                    style={{ width: `${skill.progress}%` }}
-                  ></div>
-                </div>
-                <span 
-                  className="text-sm text-[#666666] capitalize"
-                  style={{ fontFamily: "'Inter', sans-serif" }}
-                >
-                  {skill.level}
-                </span>
+                    <div className="flex items-center justify-between mb-4">
+                      <h3 
+                        className="text-lg font-medium text-[#333333]"
+                        style={{ fontFamily: "'Inter', sans-serif" }}
+                      >
+                        {skill.name}
+                      </h3>
+                      <span className="text-xl">{skill.icon}</span>
+                    </div>
+                    <div className="w-full bg-[#bcbbb4] h-2 mb-2">
+                      <div 
+                        className="h-2 bg-[#333333] transition-all duration-1000 ease-out"
+                        style={{ width: `${skill.progress}%` }}
+                      ></div>
+                    </div>
+                    <span 
+                      className="text-sm text-[#666666] capitalize"
+                      style={{ fontFamily: "'Inter', sans-serif" }}
+                    >
+                      {skill.level}
+                    </span>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
+            )}
         </div>
       </section>
     </div>
