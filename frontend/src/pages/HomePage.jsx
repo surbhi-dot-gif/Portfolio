@@ -155,28 +155,29 @@ const HomePage = () => {
           ) : (
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
               {skills.map((skill, index) => (
-              <div
-                key={skill.name}
-                className="bg-[#fffef2] p-6 border border-[#ebeade] hover:shadow-lg transition-all duration-200 hover:transform hover:-translate-y-1 cursor-pointer group"
-              >
-                <div className="text-center space-y-3">
-                  <div className="text-2xl">{skill.icon}</div>
-                  <h3 
-                    className="text-sm font-medium text-[#333333] group-hover:text-[#000000] transition-colors"
-                    style={{ fontFamily: "'Inter', sans-serif" }}
-                  >
-                    {skill.name}
-                  </h3>
-                  <div className="w-full bg-[#ebeade] h-1">
-                    <div 
-                      className="h-1 bg-[#333333] transition-all duration-1000 ease-out"
-                      style={{ width: `${skill.progress}%` }}
-                    ></div>
+                <div
+                  key={skill.id || index}
+                  className="bg-[#fffef2] p-6 border border-[#ebeade] hover:shadow-lg transition-all duration-200 hover:transform hover:-translate-y-1 cursor-pointer group"
+                >
+                  <div className="text-center space-y-3">
+                    <div className="text-2xl">{skill.icon}</div>
+                    <h3 
+                      className="text-sm font-medium text-[#333333] group-hover:text-[#000000] transition-colors"
+                      style={{ fontFamily: "'Inter', sans-serif" }}
+                    >
+                      {skill.name}
+                    </h3>
+                    <div className="w-full bg-[#ebeade] h-1">
+                      <div 
+                        className="h-1 bg-[#333333] transition-all duration-1000 ease-out"
+                        style={{ width: `${skill.progress}%` }}
+                      ></div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
