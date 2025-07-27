@@ -76,7 +76,7 @@ const HomePage = () => {
                   className="text-xl text-[#666666] leading-relaxed"
                   style={{ fontFamily: "'Inter', sans-serif" }}
                 >
-                  {profile.intro}
+                  {profile?.intro || "I turn raw data into real insights. With hands-on experience in SQL, Excel, and analytics, I help businesses make smarter, data-driven decisions."}
                 </p>
                 <p 
                   className="text-lg text-[#4a4a4a] italic"
