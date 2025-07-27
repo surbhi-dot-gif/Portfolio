@@ -191,7 +191,7 @@ const AboutPage = () => {
                 className="text-lg text-[#666666] leading-relaxed mb-8"
                 style={{ fontFamily: "'Inter', sans-serif" }}
               >
-                {about.experience}
+                {about?.experience || "My journey started at Minerva Infotech, where I learned by doing and handled real business data in a startup environment."}
               </p>
               <p 
                 className="text-lg text-[#666666] leading-relaxed mb-8"
