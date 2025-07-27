@@ -109,8 +109,8 @@ const HomePage = () => {
             <div className="relative">
               <div className="aspect-square max-w-lg mx-auto relative">
                 <img
-                  src={profile.profileImage}
-                  alt={profile.name}
+                  src={profile?.profileImage || "https://customer-assets.emergentagent.com/job_9633820c-c554-4343-8229-266ff3161521/artifacts/rxgpfmzl_Snappy.jpg"}
+                  alt={profile?.name || "Profile"}
                   className="w-full h-full object-cover shadow-2xl"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#333333]/10 to-transparent"></div>
